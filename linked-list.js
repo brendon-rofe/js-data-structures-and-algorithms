@@ -50,10 +50,26 @@ var TodoList = /** @class */ (function () {
         console.log(todos);
     };
     ;
+    TodoList.prototype.getTodoByIndex = function (index) {
+        var current = this.head;
+        var count = 0;
+        while (current) {
+            if (count === index) {
+                console.log(current.data);
+            }
+            ;
+            count++;
+            current = current.next;
+        }
+        ;
+        return null;
+    };
+    ;
     return TodoList;
 }());
 ;
 var todoList = new TodoList();
 todoList.addTodo('First todo', 'This is the first todo', Priority.Medium);
 todoList.addTodo('Second todo', 'This is the second todo', Priority.Low);
-todoList.getAllTodos();
+// todoList.getAllTodos();
+todoList.getTodoByIndex(1);

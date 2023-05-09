@@ -55,10 +55,24 @@ class TodoList {
     console.log(todos);
   };
 
+  getTodoByIndex(index) {
+    let current = this.head;
+    let count = 0;
+    while(current) {
+      if(count === index) {
+        console.log(current.data);
+      };
+      count++;
+      current = current.next;
+    };
+    return null
+  };
+
 };
 
 const todoList = new TodoList();
 
 todoList.addTodo('First todo', 'This is the first todo', Priority.Medium);
 todoList.addTodo('Second todo', 'This is the second todo', Priority.Low);
-todoList.getAllTodos();
+// todoList.getAllTodos();
+todoList.getTodoByIndex(1);
