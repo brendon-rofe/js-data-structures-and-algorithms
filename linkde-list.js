@@ -21,8 +21,20 @@ class TodoList {
       };
       current.next = newTodo;
     };
-    
   };
+
+  getTaskAtIndex(index) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if(count === index) {
+        console.log(current.task);
+      };
+      count++;
+      current = current.next;
+    };
+    return null
+  }
 
   getAllTasks() {
     let current = this.head;
@@ -39,4 +51,4 @@ todoList.addTask('Learn linked lists');
 todoList.addTask('Learn about JavaScript classes');
 todoList.addTask('Practice algorithms');
 
-todoList.getAllTasks();
+todoList.getTaskAtIndex(1);
