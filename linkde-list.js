@@ -24,9 +24,19 @@ class TodoList {
     
   };
 
-
+  printTasks() {
+    let current = this.head;
+    while(current) {
+      console.log(current.task);
+      current = current.next;
+    };
+  };
 
 };
 
 let todoList = new TodoList();
 todoList.addTask('Learn linked lists');
+todoList.addTask('Learn about JavaScript classes');
+todoList.addTask('Practice algorithms');
+
+todoList.printTasks();
