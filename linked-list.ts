@@ -4,7 +4,7 @@ enum Priority {
   High
 };
 
-interface Todo {
+interface ITodo {
   title: string;
   description: string;
   completed: boolean;
@@ -12,14 +12,16 @@ interface Todo {
 };
 
 class Todo {
-  data: Todo;
+  data: ITodo;
   next: Todo | null;
 
   constructor(title: string, description: string, priority: Priority) {
-    this.data.title = title;
-    this.data.description = description;
-    this.data.completed = false;
-    this.data.priority = priority;
+    this.data = {
+      title: title,
+      description: description,
+      completed: false,
+      priority: priority
+    }
   };
 };
 
@@ -30,6 +32,33 @@ class TodoList {
     this.head = null;
   };
 
-  
+  addTodo(title: string, description: string, priority: Priority) {
+    const newTodo = new Todo(title, description, priority);
+    if(!this.head) {
+      this.head = newTodo;
+    } else {
+      let current = this.head;
+      while(current.next) {
+        current = current.next;
+      }
+      current.next = newTodo;
+    };
+  };
+
+  getAllTodos() {
+    let current = this.head;
+    let todos: Todo[] = []
+    while(current) {
+      todos.push(current);
+      current = current.next;
+    };
+    console.log(todos);
+  };
 
 };
+
+const todoList = new TodoList();
+
+todoList.addTodo('First todo', 'This is the first todo', Priority.Medium);
+todoList.addTodo('Second todo', 'This is the second todo', Priority.Low);
+todoList.getAllTodos();
