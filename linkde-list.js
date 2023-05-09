@@ -24,7 +24,7 @@ class TodoList {
     
   };
 
-  printTasks() {
+  getAllTasks() {
     let current = this.head;
     while(current) {
       console.log(current.task);
@@ -39,4 +39,4 @@ todoList.addTask('Learn linked lists');
 todoList.addTask('Learn about JavaScript classes');
 todoList.addTask('Practice algorithms');
 
-todoList.printTasks();
+todoList.getAllTasks();
