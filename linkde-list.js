@@ -11,12 +11,20 @@ class TodoList {
   };
 
   addTask(task) {
-    const newTodo = new Todo();
+    const newTodo = new Todo(task);
     if(!this.head) {
-      this.head = newTodo
+      this.head = newTodo;
+    } else {
+      let current = this.head;
+      while(current.next) {
+        current = current.next;
+      };
+      current.next = newTodo;
     };
-    this.head.next = newTodo;
+    
   };
+
+
 
 };
 
