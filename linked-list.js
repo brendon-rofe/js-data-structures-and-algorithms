@@ -43,11 +43,12 @@ class LinkedList {
   // Print list data
   printListData() {
     let current = this.head;
-
+    const data = [];
     while(current) {
-      console.log(current.data);
+      data.push(current.data);
       current = current.next;
     };
+    console.log(data);
   };
 };
 
