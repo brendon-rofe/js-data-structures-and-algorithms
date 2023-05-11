@@ -5,14 +5,17 @@ class Node {
   };
 };
 
-class linkedList {
+class LinkedList {
   constructor() {
     this.head = null;
     this.size = 0;
   };
 
   // Insert first node
-
+  insertFirst(data) {
+    this.head = new Node(data, this.head);
+    this.size++;
+  }
   // Insert last node
 
   // Insert at index
@@ -26,3 +29,7 @@ class linkedList {
   // Print list data
 
 };
+
+const linkedList = new LinkedList();
+linkedList.insertFirst(100);
+console.log(linkedList);
