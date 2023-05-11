@@ -33,7 +33,31 @@ class LinkedList {
     this.size++;
   };
   // Insert at index
+  insertAt(data, index) {
+    if(index > 0 && index > this.size) {
+      return;
+    };
+    if(index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    };
 
+    const node = new Node(data);
+    let current, previous;
+
+    current = this.head;
+    let count = 0;
+
+    while(count < index) {
+      previous = current;
+      count++;
+      current = current.next;
+    };
+    node.next = current;
+    previous.next = node;
+
+    this.size++;
+  };
   // Get at index
 
   // Remove at index
@@ -57,4 +81,5 @@ linkedList.insertFirst(100);
 linkedList.insertFirst(200);
 linkedList.insertFirst(300);
 linkedList.insertLast(400);
+linkedList.insertAt(500, 10);
 linkedList.printListData();
