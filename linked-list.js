@@ -17,7 +17,21 @@ class LinkedList {
     this.size++;
   }
   // Insert last node
+  insertLast(data) {
+    let node = new Node(data);
+    let current;
 
+    if(!this.head) {
+      this.head = node;
+    } else {
+      current = this.head;
+      while(current.next) {
+        current = current.next;
+      };
+      current.next = node;
+    };
+    this.size++;
+  };
   // Insert at index
 
   // Get at index
@@ -41,4 +55,5 @@ const linkedList = new LinkedList();
 linkedList.insertFirst(100);
 linkedList.insertFirst(200);
 linkedList.insertFirst(300);
+linkedList.insertLast(400);
 linkedList.printListData();
