@@ -27,9 +27,18 @@ class LinkedList {
   // Clear list
 
   // Print list data
+  printListData() {
+    let current = this.head;
 
+    while(current) {
+      console.log(current.data);
+      current = current.next;
+    };
+  };
 };
 
 const linkedList = new LinkedList();
 linkedList.insertFirst(100);
-console.log(linkedList);
+linkedList.insertFirst(200);
+linkedList.insertFirst(300);
+linkedList.printListData();
