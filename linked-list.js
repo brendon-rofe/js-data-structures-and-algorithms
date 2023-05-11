@@ -59,7 +59,18 @@ class LinkedList {
     this.size++;
   };
   // Get at index
-
+  getAtIndex(index) {
+    let current = this.head;
+    let count = 0;
+    while(current) {
+      if(count === index) {
+        console.log(current.data);
+      };
+      count++;
+      current = current.next;
+    };
+    return null;
+  };
   // Remove at index
 
   // Clear list
@@ -81,5 +92,6 @@ linkedList.insertFirst(100);
 linkedList.insertFirst(200);
 linkedList.insertFirst(300);
 linkedList.insertLast(400);
-linkedList.insertAt(500, 10);
+linkedList.insertAt(500, 2);
 linkedList.printListData();
+linkedList.getAtIndex(2);
