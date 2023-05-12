@@ -34,9 +34,28 @@ var TodoList = /** @class */ (function () {
         this.count++;
     };
     ;
+    TodoList.prototype.getAllTodos = function () {
+        var current = this.head;
+        var todos = [];
+        if (!current) {
+            console.log('No items in list');
+        }
+        else {
+            while (current) {
+                todos.push(current.data);
+                current = current.next;
+            }
+            ;
+        }
+        ;
+        console.log(todos);
+    };
+    ;
     return TodoList;
 }());
 ;
 var todoList = new TodoList();
 todoList.addTodo('Go to gym', 'Lift weights');
-console.log(todoList);
+todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
+todoList.addTodo('Play warframe', 'begin a new game');
+todoList.getAllTodos();

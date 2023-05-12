@@ -19,6 +19,7 @@ class Todo {
 class TodoList {
   head: Todo | null = null;
   count: number = 0;
+
   addTodo(title: string, description: string) {
     const newTodo = new Todo(title, description);
     let current = this.head;
@@ -33,8 +34,24 @@ class TodoList {
     this.count++;
   };
 
+  getAllTodos() {
+    let current = this.head;
+    let todos: ITodo[] = [];
+    if(!current) {
+      console.log('No items in list');
+    } else {
+      while(current) {
+        todos.push(current.data);
+        current = current.next;
+      };
+    };
+    console.log(todos);
+  };
+
 };
 
 const todoList = new TodoList();
 todoList.addTodo('Go to gym', 'Lift weights');
-console.log(todoList);
+todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
+todoList.addTodo('Play warframe', 'begin a new game');
+todoList.getAllTodos();
