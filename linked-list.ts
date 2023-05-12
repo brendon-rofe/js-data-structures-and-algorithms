@@ -78,6 +78,23 @@ class TodoList {
     };
   };
 
+  removeTodo(index: number) {
+    let current = this.head;
+    let previous;
+    let count = 0;
+    while(current) {
+      if(count === index) {
+        if(previous) {
+          previous.next = current.next;
+          count--;
+        };
+      };
+      count++;
+      previous = current
+      current = current.next;
+    };
+  };
+
 };
 
 const todoList = new TodoList();
@@ -85,5 +102,6 @@ todoList.addTodo('Go to gym', 'Lift weights');
 todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
 todoList.addTodo('Play warframe', 'begin a new game');
 todoList.updateTodo(1, 'Help mom with Upwork', 'Create profile');
+todoList.removeTodo(2);
 // todoList.getTodoByIndex(2);
 todoList.getAllTodos();
