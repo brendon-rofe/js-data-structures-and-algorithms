@@ -53,7 +53,7 @@ class TodoList {
     let count = 0;
     if(!current) {
       console.log('The todo list is empty');
-    } else if(index > this.amount) {
+    } else if(index >= this.amount) {
       console.log('There is no item at that todo');
     }
     while(current) {
@@ -65,11 +65,25 @@ class TodoList {
     };
   };
 
+  updateTodo(index: number, title: string, description: string) {
+    let current = this.head;
+    let count = 0;
+    while(current) {
+      if(count === index) {
+        current.data.title = title;
+        current.data.description = description;
+      }
+      count++;
+      current = current.next;
+    };
+  };
+
 };
 
 const todoList = new TodoList();
 todoList.addTodo('Go to gym', 'Lift weights');
 todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
 todoList.addTodo('Play warframe', 'begin a new game');
-todoList.getTodoByIndex(2);
-// todoList.getAllTodos();
+todoList.updateTodo(1, 'Help mom with Upwork', 'Create profile');
+// todoList.getTodoByIndex(2);
+todoList.getAllTodos();
