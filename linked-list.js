@@ -15,6 +15,7 @@ var Todo = /** @class */ (function () {
 var TodoList = /** @class */ (function () {
     function TodoList() {
         this.head = null;
+        this.count = 0;
     }
     TodoList.prototype.addTodo = function (title, description) {
         var newTodo = new Todo(title, description);
@@ -30,6 +31,7 @@ var TodoList = /** @class */ (function () {
             current.next = newTodo;
         }
         ;
+        this.count++;
     };
     ;
     return TodoList;

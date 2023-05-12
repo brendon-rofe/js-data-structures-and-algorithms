@@ -18,7 +18,7 @@ class Todo {
 
 class TodoList {
   head: Todo | null = null;
-  
+  count: number = 0;
   addTodo(title: string, description: string) {
     const newTodo = new Todo(title, description);
     let current = this.head;
@@ -30,6 +30,7 @@ class TodoList {
       };
       current.next = newTodo;
     };
+    this.count++;
   };
 
 };
