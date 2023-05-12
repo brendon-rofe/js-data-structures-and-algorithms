@@ -15,7 +15,7 @@ var Todo = /** @class */ (function () {
 var TodoList = /** @class */ (function () {
     function TodoList() {
         this.head = null;
-        this.count = 0;
+        this.amount = 0;
     }
     TodoList.prototype.addTodo = function (title, description) {
         var newTodo = new Todo(title, description);
@@ -31,7 +31,7 @@ var TodoList = /** @class */ (function () {
             current.next = newTodo;
         }
         ;
-        this.count++;
+        this.amount++;
     };
     ;
     TodoList.prototype.getAllTodos = function () {
@@ -51,6 +51,26 @@ var TodoList = /** @class */ (function () {
         console.log(todos);
     };
     ;
+    TodoList.prototype.getTodoByIndex = function (index) {
+        var current = this.head;
+        var count = 0;
+        if (!current) {
+            console.log('The todo list is empty');
+        }
+        else if (index > this.amount) {
+            console.log('There is no item at that todo');
+        }
+        while (current) {
+            if (count === index) {
+                console.log(current.data);
+            }
+            ;
+            count++;
+            current = current.next;
+        }
+        ;
+    };
+    ;
     return TodoList;
 }());
 ;
@@ -58,4 +78,5 @@ var todoList = new TodoList();
 todoList.addTodo('Go to gym', 'Lift weights');
 todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
 todoList.addTodo('Play warframe', 'begin a new game');
-todoList.getAllTodos();
+todoList.getTodoByIndex(2);
+// todoList.getAllTodos();

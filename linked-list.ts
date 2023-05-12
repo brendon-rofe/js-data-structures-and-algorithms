@@ -18,7 +18,7 @@ class Todo {
 
 class TodoList {
   head: Todo | null = null;
-  count: number = 0;
+  amount: number = 0;
 
   addTodo(title: string, description: string) {
     const newTodo = new Todo(title, description);
@@ -31,7 +31,7 @@ class TodoList {
       };
       current.next = newTodo;
     };
-    this.count++;
+    this.amount++;
   };
 
   getAllTodos() {
@@ -48,10 +48,28 @@ class TodoList {
     console.log(todos);
   };
 
+  getTodoByIndex(index: number) {
+    let current = this.head;
+    let count = 0;
+    if(!current) {
+      console.log('The todo list is empty');
+    } else if(index > this.amount) {
+      console.log('There is no item at that todo');
+    }
+    while(current) {
+      if(count === index) {
+        console.log(current.data);
+      };
+      count++;
+      current = current.next;
+    };
+  };
+
 };
 
 const todoList = new TodoList();
 todoList.addTodo('Go to gym', 'Lift weights');
 todoList.addTodo('Help mom with Upwork', 'Create her upwork profile');
 todoList.addTodo('Play warframe', 'begin a new game');
-todoList.getAllTodos();
+todoList.getTodoByIndex(2);
+// todoList.getAllTodos();
